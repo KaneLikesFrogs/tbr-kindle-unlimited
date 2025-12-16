@@ -47,7 +47,7 @@ def get_response(url):
         return ConnectionError
 
 def get_tbr(path): 
-    with open(path) as file:
+    with open(path,encoding="utf8") as file:
         tbr = []
         cmplxlist = []
         reader = csv.DictReader(file)
@@ -127,7 +127,6 @@ def main():
         path = input("Enter path to Storygraph export\n")
         try:
             get_tbr(path)
-            active = False
             break
         except Exception as ex:
             print(f"Please enter a valid file path to a storygraph export Error Message : {ex})")
